@@ -3,7 +3,7 @@
 #include <math.h>
 #include "lib_RungeKutta.h"
 
-#define NUMofEQUS 2
+#define NUMofEQUS 3
 
 FILE* myfopen(char* FileName, char* type){
 	FILE* fp = fopen(FileName, type);
@@ -112,8 +112,14 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 	for(fi = 0; fi < NUMofEQUS; fi++){
 		fprintf(fp, ", theta_%d", fi+1);
 	}
-	if(NUMofEQUS == 2){
-		fprintf(fp, ", phase_diff");
+	if(NUMofEQUS >= 2){
+		/* 2個体以上いるときは，frog1とfrog2との位相差を出力する */
+		fprintf(fp, ", PhaseDifference(1_2)");
+	}
+	if(NUMofEQUS >= 3){
+		/* 3個体以上いるときは，frog1とfrog3との位相差，frog2とfrog3との位相差も出力する */
+		fprintf(fp, ", PhaseDifference(1_3)");
+		fprintf(fp, ", PhaseDifference(2_3)");
 	}
 	fprintf(fp, "\n");
 
@@ -123,8 +129,14 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 		for(fj = 0; fj < NUMofEQUS; fj++){
 			fprintf(fp, ", %f", sin(x[fj+1][fi]));
 		}
-		if(NUMofEQUS == 2){
-			fprintf(fp, ", %f\n", convertPhase(fabs(x[1][fi] - x[2][fi])));
+		if(NUMofEQUS >= 2){
+			/* 2個体以上いるときには，frog1とfrog2との位相差を出力する */
+			fprintf(fp, ", %f", convertPhase(fabs(x[1][fi] - x[2][fi])));
+		}
+		if(NUMofEQUS >= 3){
+			/* 3個体以上いるときは，frog1とfrog3との位相差，frog2とfrog3との位相差も出力する */
+			fprintf(fp, ", %f", convertPhase(fabs(x[1][fi] - x[3][fi])));
+			fprintf(fp, ", %f", convertPhase(fabs(x[2][fi] - x[3][fi])));
 		}
 		fprintf(fp, "\n");
 	}
@@ -196,7 +208,7 @@ int main(void){
 
 	// 独立変数のスパンを決め，その分の独立変数・従属変数計算結果を格納する配列を用意
 	t_0 = 0;
-	t_end = 100;
+	t_end = 10;
 	dt = 0.01;
 	x = malloc(sizeof(double *) * (NUMofEQUS + 1)); /* 解くべき方程式の本数+1だけのメモリを用意 */
 	for(i=0; i<NUMofEQUS + 1; i++){
@@ -208,6 +220,9 @@ int main(void){
 
 	// 各個体の位相の時間変化を出力
 	outputPhaseTimeRel(x, t_0, t_end, dt);
+
+	// 相平面に描くヌルクラインを描画するためのデータを出力
+	outputNullclineSource();
 
 	// ラスタープロット用のデータを出力
 	outputRasterPlotSource(x, t_0, t_end, dt);
