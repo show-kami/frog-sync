@@ -1,7 +1,11 @@
+// めも: main.cをコンパイルするときには↓のように打つ。他のライブラリを含めてやんなきゃいけないから。
+// gcc -pedantic -Wall lib_RungeKutta.o lib_FrogPhaseDeriv.o main.c
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include "lib_RungeKutta.h"
+#include "lib_FrogPhaseDeriv.h"
 
 #define NUMofEQUS 3
 
@@ -16,64 +20,6 @@ FILE* myfopen(char* FileName, char* type){
 
 int NumOfSlice(double start, double end, double step){
 	return (end - start) / step + 1;
-}
-
-double Interaction(double theta_passive, double theta_active){
-	double K = 1.0;
-	double gamma = 0.25;
-	double PhaseDiff = theta_active - theta_passive;
-	return -K * (sin(PhaseDiff) - gamma * sin(2 * PhaseDiff));
-}
-
-double FrogDerivative(int IDNo, double *phase){
-	double omega = 8 * M_PI;
-	double SigmaInteraction = 0;
-	int fi;
-	for(fi = 0; fi < NUMofEQUS; fi++){
-		if(fi != IDNo){
-			SigmaInteraction += Interaction(phase[IDNo], phase[fi]);
-		}
-	}
-	return omega + SigmaInteraction / (NUMofEQUS - 1);
-}
-
-double f_A(double t, double *x){
-	int IndividualID = 0;
-	double omega = 8 * M_PI;
-	double result = omega;
-	int fi;
-	for(fi = 0; fi < NUMofEQUS; fi++){
-		if(fi != IndividualID){
-			result += Interaction(x[IndividualID], x[fi]);
-		}
-	}
-	return result;
-}
-
-double f_B(double t, double *x){
-	int IndividualID = 1;
-	double omega = 8 * M_PI;
-	double result = omega;
-	int fi;
-	for(fi = 0; fi < NUMofEQUS; fi++){
-		if(fi != IndividualID){
-			result += Interaction(x[IndividualID], x[fi]);
-		}
-	}
-	return result;
-}
-
-double f_C(double t, double *x){
-	int IndividualID = 2;
-	double omega = 8 * M_PI;
-	double result = omega;
-	int fi;
-	for(fi = 0; fi < NUMofEQUS; fi++){
-		if(fi != IndividualID){
-			result += Interaction(x[IndividualID], x[fi]);
-		}
-	}
-	return result;
 }
 
 //--------------------------------------------------------------------------
@@ -106,38 +52,53 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 	int fi,fj;
 	FILE *fp;
 
-	/* ヘッダ行を書く */
+	// ヘッダ行を書く
 	fp = myfopen("output_theta.csv", "w");
 	fprintf(fp, "time");
 	for(fi = 0; fi < NUMofEQUS; fi++){
-		fprintf(fp, ", theta_%d", fi+1);
+		fprintf(fp, ", theta_%d", fi);
 	}
-	if(NUMofEQUS >= 2){
-		/* 2個体以上いるときは，frog1とfrog2との位相差を出力する */
+	if(NUMofEQUS == 2){
+		/* 2個体のときは，frog0とfrog1との位相差を出力する */
+		fprintf(fp, ", PhaseDifference(0_1)");
+	} else if(NUMofEQUS == 3){
+		/* 3個体のときは，frog0とfrog2との位相差，frog1とfrog2との位相差も出力する */
+		fprintf(fp, ", PhaseDifference(0_2)");
 		fprintf(fp, ", PhaseDifference(1_2)");
 	}
-	if(NUMofEQUS >= 3){
-		/* 3個体以上いるときは，frog1とfrog3との位相差，frog2とfrog3との位相差も出力する */
-		fprintf(fp, ", PhaseDifference(1_3)");
-		fprintf(fp, ", PhaseDifference(2_3)");
-	}
+	fprintf(fp, ", OrderPara_drawX, OrderPara_drawY\n");
 	fprintf(fp, "\n");
 
-	/* 数値を書く */
+	// 各時間における各数値を出力
 	for(fi = 0; fi < NumOfSlice(t_0, t_end, dt); fi++){
+		// 各個体の位相を書く (2個体 or 3個体のときには個体間の位相差も)
 		fprintf(fp, "%f", x[0][fi]);
 		for(fj = 0; fj < NUMofEQUS; fj++){
 			fprintf(fp, ", %f", x[fj+1][fi]);
 		}
-		if(NUMofEQUS >= 2){
-			/* 2個体以上いるときには，frog1とfrog2との位相差を出力する */
+		if(NUMofEQUS == 2){
+			/* 2個のときには，frog0とfrog1との位相差を出力する */
 			fprintf(fp, ", %f", convertPhase(fabs(x[1][fi] - x[2][fi])));
-		}
-		if(NUMofEQUS >= 3){
-			/* 3個体以上いるときは，frog1とfrog3との位相差，frog2とfrog3との位相差も出力する */
+		} else if(NUMofEQUS == 3){
+			/* 3個体のときは，frog0とfrog2との位相差，frog1とfrog2との位相差も出力する */
 			fprintf(fp, ", %f", convertPhase(fabs(x[1][fi] - x[3][fi])));
 			fprintf(fp, ", %f", convertPhase(fabs(x[2][fi] - x[3][fi])));
 		}
+
+		// 秩序パラメータを書く
+		double OrderPara_drawX, OrderPara_drawY;
+		double x_tmp = 0;
+		double y_tmp = 0;
+		for(fj = 0; fj < NUMofEQUS; fj++){
+			double phase = x[fj+1][fi];
+			x_tmp += cos(phase);
+			y_tmp += sin(phase);
+		}
+		OrderPara_drawX = x_tmp / NUMofEQUS;
+		OrderPara_drawY = y_tmp / NUMofEQUS;
+		fprintf(fp, ", %f, %f\n", OrderPara_drawX, OrderPara_drawY);
+
+		// 改行
 		fprintf(fp, "\n");
 	}
 
@@ -193,7 +154,7 @@ void outputRasterPlotSource(double **x, double t_0, double t_end, double dt){
 	// ヘッダ行を書く
 	fprintf(fp, "time");
 	for(fi = 0; fi < NUMofEQUS; fi++){
-		fprintf(fp, ", frog_%d", fi+1);
+		fprintf(fp, ", frog_%d", fi);
 	}
 	fprintf(fp, "\n");
 
@@ -207,7 +168,7 @@ void outputRasterPlotSource(double **x, double t_0, double t_end, double dt){
 			double ConvertedPhase = convertPhase(x[fj+1][fi]);
 			if (ConvertedPhase >= 0 && ConvertedPhase <= M_PI/2){
 				/* 位相が0~PI/2の範囲にあるときは個体番号を出力する */
-				fprintf(fp, ", %d", fj+1);
+				fprintf(fp, ", %d", fj);
 			} else {
 				/* そうでなければ-1を出力する。 */
 				fprintf(fp, ", -1");
@@ -225,26 +186,26 @@ int main(void){
 	double (*f[NUMofEQUS])(double t, double *x);
 	double x_0[NUMofEQUS];
 	double t_0, t_end, dt;
-	int i;
+	int fi;
 
 	// 微分方程式へのポインタを格納
-	f[0] = f_A;
-	if(NUMofEQUS >= 2) f[1] = f_B;
-	if(NUMofEQUS >= 3) f[2] = f_C;
+	makePointerToFrogPhaseDeriv(f, NUMofEQUS);
 
 	// 従属変数の初期値を格納
-	x_0[0] = 0;
-	if(NUMofEQUS >= 2) x_0[1] = M_PI/4;
-	if(NUMofEQUS >= 3) x_0[2] = M_PI/8;
-	fprintf(stdout, "Initial Phase Difference of frog1 and frog2: %f\n", fabs(x_0[0] - x_0[1]));
+	srand(112);
+	for(fi = 0; fi < NUMofEQUS; fi++){
+		x_0[fi] = (double)rand()/RAND_MAX * 2 * M_PI; /* 0-2piの間の一様乱数を格納しておく */
+	}
+	// if(NUMofEQUS >= 2) x_0[1] = M_PI/4;
+	// if(NUMofEQUS >= 3) x_0[2] = M_PI/8;
 
 	// 独立変数のスパンを決め，その分の独立変数・従属変数計算結果を格納する配列を用意
 	t_0 = 0;
 	t_end = 10;
 	dt = 0.01;
 	x = malloc(sizeof(double *) * (NUMofEQUS + 1)); /* 解くべき方程式の本数+1だけのメモリを用意 */
-	for(i=0; i<NUMofEQUS + 1; i++){
-		x[i] = malloc(sizeof(double) * NumOfSlice(t_0, t_end, dt));
+	for(fi=0; fi<NUMofEQUS + 1; fi++){
+		x[fi] = malloc(sizeof(double) * NumOfSlice(t_0, t_end, dt));
 	}
 
 	// 数値計算を実行
