@@ -1,0 +1,7 @@
+*.
+*.
+*.pdf
+InitialPhaseDiff_SyncRequiredTime_Relation
+lib_RungeKutta_TerminalPlusMinusEpsilon.o
+*.o
+*.gcx
