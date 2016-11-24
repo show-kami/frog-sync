@@ -127,7 +127,7 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 	for(fi = 0; fi < NumOfSlice(t_0, t_end, dt); fi++){
 		fprintf(fp, "%f", x[0][fi]);
 		for(fj = 0; fj < NUMofEQUS; fj++){
-			fprintf(fp, ", %f", sin(x[fj+1][fi]));
+			fprintf(fp, ", %f", x[fj+1][fi]);
 		}
 		if(NUMofEQUS >= 2){
 			/* 2個体以上いるときには，frog1とfrog2との位相差を出力する */
