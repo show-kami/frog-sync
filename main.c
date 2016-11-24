@@ -7,7 +7,7 @@
 #include "lib_RungeKutta.h"
 #include "lib_FrogPhaseDeriv.h"
 
-#define NUMofEQUS 3
+#define NUMofEQUS 100
 
 FILE* myfopen(char* FileName, char* type){
 	FILE* fp = fopen(FileName, type);
@@ -201,7 +201,7 @@ int main(void){
 
 	// 独立変数のスパンを決め，その分の独立変数・従属変数計算結果を格納する配列を用意
 	t_0 = 0;
-	t_end = 10;
+	t_end = 20;
 	dt = 0.01;
 	x = malloc(sizeof(double *) * (NUMofEQUS + 1)); /* 解くべき方程式の本数+1だけのメモリを用意 */
 	for(fi=0; fi<NUMofEQUS + 1; fi++){
