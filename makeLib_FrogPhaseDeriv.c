@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 FILE* myfopen(char* FileName, char* type){
 	FILE* fp = fopen(FileName, type);
@@ -14,6 +15,7 @@ FILE* myfopen(char* FileName, char* type){
 
 int main(void){
 	int NumOfFrogs;
+	char PhaseShiftPara[1000];
 	char str[1000];
 	int fi;
 	FILE *fp;
@@ -25,6 +27,11 @@ int main(void){
 		fprintf(stderr, "ERROR: typed value is something wrong.\n");
 		exit(1);
 	}
+
+	printf("Set the value of phase-shift parameter...\n");
+	fgets(str, sizeof(str), stdin);
+	strtok(str, "\n\0");
+	strcpy(PhaseShiftPara, str);
 
 	// まずヘッダファイルを作成
 	fp = myfopen("lib_FrogPhaseDeriv.h", "w");
@@ -48,7 +55,8 @@ int main(void){
 	fprintf(fp, "double Interaction(double theta_passive, double theta_active){");
 	fprintf(fp, "\tdouble K = 1.0;\n");
 	fprintf(fp, "\tdouble gamma = 0.25;\n");
-	fprintf(fp, "\tdouble PhaseDiff = theta_active - theta_passive;\n");
+	fprintf(fp, "\tdouble PhaseShiftPara = %s;\n", PhaseShiftPara);
+	fprintf(fp, "\tdouble PhaseDiff = theta_active - theta_passive + PhaseShiftPara;\n");
 	fprintf(fp, "\treturn -K * (sin(PhaseDiff) - gamma * sin(2 * PhaseDiff));\n");
   fprintf(fp, "}\n\n");
 
@@ -84,6 +92,8 @@ int main(void){
 		fprintf(stdout, "\ttype commands below on Terminal to make the .o file again\n");
 		fprintf(stdout, "\tgcc -pedantic -Wall -c lib_FrogPhaseDeriv.c\n");
 	}
+
+	fprintf(stdout, "completed.\n");
 
 	return 0;
 }
