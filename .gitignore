@@ -1,3 +1,5 @@
 *.pdf
 *.o
 *.gcx
+images
+.gitignore
