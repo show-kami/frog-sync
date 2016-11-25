@@ -7,7 +7,7 @@
 #include "lib_RungeKutta.h"
 #include "lib_FrogPhaseDeriv.h"
 
-#define NUMofEQUS 100
+#define NUMofEQUS 2
 
 FILE* myfopen(char* FileName, char* type){
 	FILE* fp = fopen(FileName, type);
