@@ -106,38 +106,6 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 	return;
 }
 
-void outputNullclineSource(void){
-	int fi;
-	double phi12 = 0;
-	double phi13 = 0;
-	double K = 1.0;
-	double gamma = 0.25;
-	FILE *fp[2];
-	fp[0] = myfopen("output_NullclineOfPhi12.txt","w");
-	fp[1] = myfopen("output_NullclineOfPhi13.txt","w");
-	for(fi = 0; fi < 2; fi++){
-		phi12 = 0;
-		phi13 = 0;
-		do{
-			phi12 = 0;
-			do{
-				double value = 0;
-				if(fi == 0){
-					value = 2*K*(sin(phi12)-gamma*sin(2*phi12)) + K*(sin(phi13)-gamma*sin(2*phi13)+sin(phi12-phi13)-gamma*sin(2*(phi12-phi13)));
-				} else if(fi == 1){
-					value = 2*K*(sin(phi13)-gamma*sin(2*phi13)) + K*(sin(phi12)-gamma*sin(2*phi12)+sin(phi13-phi12)-gamma*sin(2*(phi13-phi12)));
-				}
-				fprintf(fp[fi], "%f\t", value);
-				phi12 += 2 * M_PI / 1000;
-			} while(phi12 < 2*M_PI);
-			fprintf(fp[fi], "\n");
-			phi13 += 2 * M_PI / 1000;
-		} while (phi13 < 2*M_PI);
-	}
-	fclose(fp[0]);
-	fclose(fp[1]);
-}
-
 //--------------------------------------------------------------------------
 // 関数名	:outputRasterPlotSource
 // 概要		:各個体が鳴いたタイミングを表すラスタープロットを作成するためのデータを出力
@@ -213,10 +181,6 @@ int main(void){
 
 	// 各個体の位相の時間変化を出力
 	outputPhaseTimeRel(x, t_0, t_end, dt);
-
-	// 相平面に描くヌルクラインを描画するためのデータを出力
-	// outputNullclineSource();
-	// TODO: これで出力した結果を，Rでどう行列に直してヌルクライン描けばいいのか…。
 
 	// ラスタープロット用のデータを出力
 	outputRasterPlotSource(x, t_0, t_end, dt);
