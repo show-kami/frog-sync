@@ -4,6 +4,8 @@
 
 #define NUMofEQUS 2
 #define PHI_DIV_NUM 1000
+#define GAMMA_START 0
+#define GAMMA_END 2
 
 FILE* myfopen(char* FileName, char* type){
 	FILE* fp = fopen(FileName, type);
@@ -84,7 +86,7 @@ int main(void){
 	}
 
 	// 数値計算を実行
-	gamma = 0;
+	gamma = GAMMA_START;
 	fprintf(fp, "gamma, StableEquil_1, StableEquil_2, UnstableEquil_1, UnstableEquil_2\n");
 	do{
 		/* 必要な変数を定義 */
@@ -146,7 +148,7 @@ int main(void){
 		fprintf(fp, "\n");
 
 		gamma += 0.001;
-	} while (gamma < 1);
+	} while (gamma < GAMMA_END);
 
 	// executeRK(f, NUMofEQUS, t_0, t_end, dt, x_0, x);
 
