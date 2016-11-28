@@ -1,13 +1,13 @@
 // めも: main.cをコンパイルするときには↓のように打つ。他のライブラリを含めてやんなきゃいけないから。
-// gcc -pedantic -Wall lib_RungeKutta.o lib_FrogPhaseDeriv.o main.c
+// gcc -pedantic -Wall lib_RungeKutta.o lib_Frog100PhaseDeriv.o main.c
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include "lib_RungeKutta.h"
-#include "lib_FrogPhaseDeriv.h"
+#include "lib_Frog100PhaseDeriv.h"
 
-#define NUMofEQUS 2
+#define NUMofEQUS 100
 
 FILE* myfopen(char* FileName, char* type){
 	FILE* fp = fopen(FileName, type);
@@ -177,6 +177,7 @@ int main(void){
 	}
 
 	// 数値計算を実行
+	fprintf(stderr, "start calc...\n");
 	executeRK(f, NUMofEQUS, t_0, t_end, dt, x_0, x);
 
 	// 各個体の位相の時間変化を出力

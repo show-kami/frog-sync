@@ -14,48 +14,39 @@ FILE* myfopen(char* FileName, char* type){
 }
 
 int main(void){
-	int NumOfFrogs;
-	char PhaseShiftPara[1000];
-	char str[1000];
+	int NumOfFrogs = 100;
 	int fi;
 	FILE *fp;
 
-	printf("How many frogs are you gonna consider? ...\n");
-	fgets(str,sizeof(str), stdin);
-	NumOfFrogs = atoi(str);
-	if (NumOfFrogs == 0){
-		fprintf(stderr, "ERROR: typed value is something wrong.\n");
-		exit(1);
-	}
-
-	printf("Set the value of phase-shift parameter...\n");
-	fgets(str, sizeof(str), stdin);
-	strtok(str, "\n\0");
-	strcpy(PhaseShiftPara, str);
-
 	// まずヘッダファイルを作成
-	fp = myfopen("lib_FrogPhaseDeriv.h", "w");
-	fprintf(fp, "#ifndef _LIB_FROGPHASEDERIV_H_\n");
-	fprintf(fp, "#define _LIB_FROGPHASEDERIV_H_\n\n");
+	fp = myfopen("lib_Frog100PhaseDeriv.h", "w");
+	fprintf(fp, "#ifndef _LIB_FROG100PHASEDERIV_H_\n");
+	fprintf(fp, "#define _LIB_FROG100PHASEDERIV_H_\n\n");
+	fprintf(fp, "double Interaction(double theta_passive, double theta_active, int passive, int active);\n");
 	for(fi = 0; fi < NumOfFrogs; fi++){
 		fprintf(fp, "double f_%d(double t, double *x);\n", fi);
 	}
 	fprintf(fp, "void makePointerToFrogPhaseDeriv(double (*f[])(double t, double *x), int n);\n");
-	fprintf(fp, "\n#endif // _LIB_FROGPHASEDERIV_H_\n");
+	fprintf(fp, "\n#endif // _LIB_FROG100PHASEDERIV_H_\n");
 	fclose(fp);
 
 	// .cファイルを作成。ヘッダなどのインクルードをまず書く。
-	fp = myfopen("lib_FrogPhaseDeriv.c", "w");
+	fp = myfopen("lib_Frog100PhaseDeriv.c", "w");
 	fprintf(fp, "#include <stdio.h>\n");
   fprintf(fp, "#include <stdlib.h>\n");
   fprintf(fp, "#include <math.h>\n");
-  fprintf(fp, "#include \"lib_FrogPhaseDeriv.h\"\n\n");
+  fprintf(fp, "#include \"lib_Frog100PhaseDeriv.h\"\n\n");
 
 	// .cの本体のうち，相互作用関数の部分を書く
-	fprintf(fp, "double Interaction(double theta_passive, double theta_active){");
+	fprintf(fp, "double Interaction(double theta_passive, double theta_active, int passive, int active){\n");
 	fprintf(fp, "\tdouble K = 1.0;\n");
 	fprintf(fp, "\tdouble gamma = 0.25;\n");
-	fprintf(fp, "\tdouble PhaseShiftPara = %s;\n", PhaseShiftPara);
+	fprintf(fp, "\tint x_passive = passive %% 10;\n");
+	fprintf(fp, "\tint y_passive = passive / 10;\n");
+	fprintf(fp, "\tint x_active = active %% 10;\n");
+	fprintf(fp, "\tint y_active = active / 10;\n");
+	fprintf(fp, "\tdouble distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));\n");
+	fprintf(fp, "\tdouble PhaseShiftPara = (distance / 345 + 0.02) / 0.25 * 2 * M_PI;\n");
 	fprintf(fp, "\tdouble PhaseDiff = theta_active - theta_passive + PhaseShiftPara;\n");
 	fprintf(fp, "\treturn -K * (sin(PhaseDiff) - gamma * sin(2 * PhaseDiff));\n");
   fprintf(fp, "}\n\n");
@@ -65,14 +56,24 @@ int main(void){
 		fprintf(fp, "double f_%d(double t, double *x){\n", fi);
 	  fprintf(fp, "\tint IndividualID = %d;\n", fi);
 	  fprintf(fp, "\tdouble omega = 8 * M_PI;\n");
-	  fprintf(fp, "\tdouble result = omega;\n");
+	  fprintf(fp, "\tdouble InteractionTotal = 0;\n");
 	  fprintf(fp, "\tint fi;\n");
+	  fprintf(fp, "\tdouble WeightTotal = 0;\n");
+	  fprintf(fp, "\tdouble Weight, distance;\n");
+	  fprintf(fp, "\tint x_passive, y_passive, x_active, y_active;\n");
 	  fprintf(fp, "\tfor(fi = 0; fi < %d; fi++){\n", NumOfFrogs);
 	  fprintf(fp, "\t\tif(fi != IndividualID){\n");
-	  fprintf(fp, "\t\t\tresult += Interaction(x[IndividualID], x[fi]) / %d;\n", NumOfFrogs-1);
+	  fprintf(fp, "\t\t\tx_passive = IndividualID %% 10;\n");
+	  fprintf(fp, "\t\t\ty_passive = IndividualID / 10;\n");
+	  fprintf(fp, "\t\t\tx_active = fi %% 10;\n");
+	  fprintf(fp, "\t\t\ty_active = fi / 10;\n");
+	  fprintf(fp, "\t\t\tdistance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));\n");
+	  fprintf(fp, "\t\t\tWeight = 1 / distance;\n");
+	  fprintf(fp, "\t\t\tInteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);\n");
+	  fprintf(fp, "\t\t\tWeightTotal += Weight;\n");
 	  fprintf(fp, "\t\t}\n");
 	  fprintf(fp, "\t}\n");
-	  fprintf(fp, "\treturn result;\n");
+	  fprintf(fp, "\treturn omega + InteractionTotal / WeightTotal;\n");
     fprintf(fp, "}\n\n");
 	}
 	fprintf(fp, "\n");
@@ -87,10 +88,10 @@ int main(void){
 
 	fclose(fp);
 
-	if (remove("lib_FrogPhaseDeriv.o") == 0){
-		fprintf(stdout, "MESSAGE: lib_FrogPhaseDeriv.o is deleted.\n");
+	if (remove("lib_Frog100PhaseDeriv.o") == 0){
+		fprintf(stdout, "MESSAGE: lib_Frog100PhaseDeriv.o is deleted.\n");
 		fprintf(stdout, "\ttype commands below on Terminal to make the .o file again\n");
-		fprintf(stdout, "\tgcc -pedantic -Wall -c lib_FrogPhaseDeriv.c\n");
+		fprintf(stdout, "\tgcc -pedantic -Wall -c lib_Frog100PhaseDeriv.c\n");
 	}
 
 	fprintf(stdout, "completed.\n");
