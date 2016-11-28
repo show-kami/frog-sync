@@ -74,7 +74,7 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 		// 各個体の位相を書く (2個体 or 3個体のときには個体間の位相差も)
 		fprintf(fp, "%f", x[0][fi]);
 		for(fj = 0; fj < NUMofEQUS; fj++){
-			fprintf(fp, ", %f", x[fj+1][fi]);
+			fprintf(fp, ", %f", convertPhase(x[fj+1][fi]));
 		}
 		if(NUMofEQUS == 2){
 			/* 2個のときには，frog0とfrog1との位相差を出力する */
