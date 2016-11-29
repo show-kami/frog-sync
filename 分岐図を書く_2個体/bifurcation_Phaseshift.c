@@ -58,18 +58,18 @@ int main(void){
 		phi = 0;
 		tmp = DphiDt(-M_PI / PHI_DIV_NUM, r);
 		/* ファイルの各行の先頭に，rの値を出力する */
-		fprintf(fp_stable, "%f", r);
-		fprintf(fp_unstable, "%f",r);
+		fprintf(fp_stable, "%f, ", r);
+		fprintf(fp_unstable, "%f, ",r);
 		do{
 			/* あるrの値に対して，平衡解をφ=[0,2pi)の範囲で探す。 */
 			value = DphiDt(phi, r);
 			if ((tmp > 0 && value < 0) || (tmp > 0 && value == 0)){
 				/* この条件を満たすとき，このphiは安定平衡解である */
-				fprintf(fp_stable, ", %f", phi);
+				fprintf(fp_stable, "%f, ", phi);
 			}
 			if ((tmp < 0 && value > 0) || (tmp < 0 && value == 0)){
 				/* この条件を満たすとき，このphiは不安定平衡解である */
-				fprintf(fp_unstable, ", %f", phi);
+				fprintf(fp_unstable, "%f, ", phi);
 			}
 
 			tmp = value;
