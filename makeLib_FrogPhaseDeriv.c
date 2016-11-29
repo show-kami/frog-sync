@@ -15,7 +15,6 @@ FILE* myfopen(char* FileName, char* type){
 
 int main(void){
 	int NumOfFrogs = 100;
-	double K = 11.5;
 	int fi;
 	FILE *fp;
 
@@ -40,7 +39,7 @@ int main(void){
 
 	// .cの本体のうち，相互作用関数の部分を書く
 	fprintf(fp, "double Interaction(double theta_passive, double theta_active, int passive, int active){\n");
-	fprintf(fp, "\tdouble K = %f;\n", K);
+	fprintf(fp, "\tdouble K = 1.0;\n");
 	fprintf(fp, "\tdouble gamma = 0.25;\n");
 	fprintf(fp, "\tint x_passive = passive %% 10;\n");
 	fprintf(fp, "\tint y_passive = passive / 10;\n");

@@ -4,7 +4,7 @@
 #include "lib_Frog100PhaseDeriv.h"
 
 double Interaction(double theta_passive, double theta_active, int passive, int active){
-	double K = 11.500000;
+	double K = 1.0;
 	double gamma = 0.25;
 	int x_passive = passive % 10;
 	int y_passive = passive / 10;
