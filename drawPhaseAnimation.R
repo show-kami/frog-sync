@@ -2,13 +2,12 @@ library(animation)
 library(jpeg)
 library(tcltk)
 
-num.frogs <- 2 # 考えている個体数
+num.frogs <- 100 # 考えている個体数
 data <- read.csv("output_theta.csv", header = T)
 num.timeslice <- nrow(data)
-
 theta <- seq(0, 2*pi, by=0.01)
 
-# pb <- txtProgressBar(min = 1, max = num.timeslice, style = 3) # プログレスバーの設定
+pb <- txtProgressBar(min = 1, max = num.timeslice, style = 3) # プログレスバーの設定
 # プログレスバーについて http://gg-hogehoge.hatenablog.com/entry/2013/08/18/095448
 
 execute <- function(){
@@ -18,12 +17,10 @@ execute <- function(){
 		plot(cos(theta), sin(theta), type = "l", xlim = c(-1,1), ylim = c(-1,1) , xlab = "", ylab = "")
 		for(j in 1:num.frogs){
 			phase_j <- data[i, 1+j]
-			par(new = T)
-			plot(cos(phase_j), sin(phase_j) , pch = 16, cex = 3, col = "black", xlim = c(-1,1), ylim = c(-1,1) , xlab = "", ylab = "")
+			points(cos(phase_j), sin(phase_j) , pch = 16, cex = 3, col = "black")
 		}
-		par(new = T)
-		plot(OrderParaX, OrderParaY, pch = 16, cex = 3, col = "gold", xlim = c(-1,1), ylim = c(-1,1))
-		# setTxtProgressBar(pb, i) 
+		points(OrderParaX, OrderParaY, pch = 16, cex = 3, col = "gold")
+		setTxtProgressBar(pb, i) 
 	}
 }
 
