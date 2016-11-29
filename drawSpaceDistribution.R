@@ -23,10 +23,14 @@ execute <- function(){
 	}
 }
 
-saveHTML(
-	{
-		execute()
-	}, interval = 0.01, movie.name = "./phase_animation.gif"
+# saveHTML(
+# 	{
+# 		execute()
+# 	}, interval = 0.01, movie.name = "./phase_animation.gif"
+# )
+
+saveVideo({
+	ani.options(interval = 0.01)
+	execute()
+},video.name = "anime_SpaceDistribution.mp4", other.opts = "-pix_fmt yuv420p -b 1000k"
 )
-
-
