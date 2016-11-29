@@ -15,7 +15,7 @@ FILE* myfopen(char* FileName, char* type){
 
 int main(void){
 	int NumOfFrogs = 100;
-	double K = 11.5;
+	double K = 8.0;
 	double gamma = 1.3;
 	int fi;
 	FILE *fp;
@@ -70,7 +70,7 @@ int main(void){
 	  fprintf(fp, "\t\t\tx_active = fi %% 10;\n");
 	  fprintf(fp, "\t\t\ty_active = fi / 10;\n");
 	  fprintf(fp, "\t\t\tdistance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));\n");
-	  fprintf(fp, "\t\t\tWeight = 1 / distance;\n");
+	  fprintf(fp, "\t\t\tWeight = 1 / pow(distance, 2);\n");
 	  fprintf(fp, "\t\t\tInteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);\n");
 	  fprintf(fp, "\t\t\tWeightTotal += Weight;\n");
 	  fprintf(fp, "\t\t}\n");
