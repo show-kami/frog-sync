@@ -3,3 +3,9 @@
 *.gcx
 images
 .gitignore
+*.csv
+結果グラフ_100個体
+*.html
+*.css
+*.js
+*.mp4

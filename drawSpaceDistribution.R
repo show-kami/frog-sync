@@ -32,5 +32,5 @@ execute <- function(){
 saveVideo({
 	ani.options(interval = 0.01)
 	execute()
-},video.name = "anime_SpaceDistribution.mp4", other.opts = "-pix_fmt yuv420p -b 1000k"
+},video.name = "anime_space.mp4", other.opts = "-pix_fmt yuv420p -b 1000k"
 )
