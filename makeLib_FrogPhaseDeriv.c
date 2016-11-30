@@ -17,8 +17,11 @@ int main(void){
 	int NumOfFrogs = 100;
 	double K = 8.0;
 	double gamma = 1.3;
+	double IdentityDistance = 0.25; /* カエルを配置する格子点の間隔を0.25 mにする。 */
 	int fi;
 	FILE *fp;
+	int Decay_distance = 1; /* 1のとき，相互作用関数が距離の2乗に反比例して減衰するようにする。0のとき，減衰しないようにする。 */
+	char PhaseShiftPara[] = "(distance / 345 + 0.02) / 0.25 * 2 * M_PI";
 
 	// まずヘッダファイルを作成
 	fp = myfopen("lib_Frog100PhaseDeriv.h", "w");
@@ -47,8 +50,8 @@ int main(void){
 	fprintf(fp, "\tint y_passive = passive / 10;\n");
 	fprintf(fp, "\tint x_active = active %% 10;\n");
 	fprintf(fp, "\tint y_active = active / 10;\n");
-	fprintf(fp, "\tdouble distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));\n");
-	fprintf(fp, "\tdouble PhaseShiftPara = (distance / 345 + 0.02) / 0.25 * 2 * M_PI;\n");
+	fprintf(fp, "\tdouble distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * %f;\n" ,IdentityDistance);
+	fprintf(fp, "\tdouble PhaseShiftPara = %s;\n", PhaseShiftPara);
 	fprintf(fp, "\tdouble PhaseDiff = theta_active - theta_passive + PhaseShiftPara;\n");
 	fprintf(fp, "\treturn -K * (sin(PhaseDiff) - gamma * sin(2 * PhaseDiff));\n");
   fprintf(fp, "}\n\n");
@@ -69,8 +72,15 @@ int main(void){
 	  fprintf(fp, "\t\t\ty_passive = IndividualID / 10;\n");
 	  fprintf(fp, "\t\t\tx_active = fi %% 10;\n");
 	  fprintf(fp, "\t\t\ty_active = fi / 10;\n");
-	  fprintf(fp, "\t\t\tdistance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));\n");
-	  fprintf(fp, "\t\t\tWeight = 1 / pow(distance, 2);\n");
+	  if(Decay_distance == 0){
+	  	fprintf(fp, "\t\t\tWeight = 1;\n");
+	  } else if(Decay_distance == 1){
+	  	fprintf(fp, "\t\t\tdistance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * %f;\n", IdentityDistance);
+	  	fprintf(fp, "\t\t\tWeight = 1 / pow(distance, 2);\n");
+	  } else {
+	  	fprintf(stderr, "ERROR: value of Decay_distance is wrong.\n");
+	  	exit(1);
+	  }
 	  fprintf(fp, "\t\t\tInteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);\n");
 	  fprintf(fp, "\t\t\tWeightTotal += Weight;\n");
 	  fprintf(fp, "\t\t}\n");

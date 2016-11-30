@@ -10,7 +10,7 @@ double Interaction(double theta_passive, double theta_active, int passive, int a
 	int y_passive = passive / 10;
 	int x_active = active % 10;
 	int y_active = active / 10;
-	double distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+	double distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 	double PhaseShiftPara = (distance / 345 + 0.02) / 0.25 * 2 * M_PI;
 	double PhaseDiff = theta_active - theta_passive + PhaseShiftPara;
 	return -K * (sin(PhaseDiff) - gamma * sin(2 * PhaseDiff));
@@ -30,7 +30,7 @@ double f_0(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -53,7 +53,7 @@ double f_1(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -76,7 +76,7 @@ double f_2(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -99,7 +99,7 @@ double f_3(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -122,7 +122,7 @@ double f_4(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -145,7 +145,7 @@ double f_5(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -168,7 +168,7 @@ double f_6(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -191,7 +191,7 @@ double f_7(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -214,7 +214,7 @@ double f_8(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -237,7 +237,7 @@ double f_9(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -260,7 +260,7 @@ double f_10(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -283,7 +283,7 @@ double f_11(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -306,7 +306,7 @@ double f_12(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -329,7 +329,7 @@ double f_13(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -352,7 +352,7 @@ double f_14(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -375,7 +375,7 @@ double f_15(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -398,7 +398,7 @@ double f_16(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -421,7 +421,7 @@ double f_17(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -444,7 +444,7 @@ double f_18(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -467,7 +467,7 @@ double f_19(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -490,7 +490,7 @@ double f_20(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -513,7 +513,7 @@ double f_21(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -536,7 +536,7 @@ double f_22(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -559,7 +559,7 @@ double f_23(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -582,7 +582,7 @@ double f_24(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -605,7 +605,7 @@ double f_25(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -628,7 +628,7 @@ double f_26(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -651,7 +651,7 @@ double f_27(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -674,7 +674,7 @@ double f_28(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -697,7 +697,7 @@ double f_29(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -720,7 +720,7 @@ double f_30(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -743,7 +743,7 @@ double f_31(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -766,7 +766,7 @@ double f_32(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -789,7 +789,7 @@ double f_33(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -812,7 +812,7 @@ double f_34(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -835,7 +835,7 @@ double f_35(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -858,7 +858,7 @@ double f_36(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -881,7 +881,7 @@ double f_37(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -904,7 +904,7 @@ double f_38(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -927,7 +927,7 @@ double f_39(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -950,7 +950,7 @@ double f_40(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -973,7 +973,7 @@ double f_41(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -996,7 +996,7 @@ double f_42(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1019,7 +1019,7 @@ double f_43(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1042,7 +1042,7 @@ double f_44(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1065,7 +1065,7 @@ double f_45(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1088,7 +1088,7 @@ double f_46(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1111,7 +1111,7 @@ double f_47(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1134,7 +1134,7 @@ double f_48(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1157,7 +1157,7 @@ double f_49(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1180,7 +1180,7 @@ double f_50(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1203,7 +1203,7 @@ double f_51(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1226,7 +1226,7 @@ double f_52(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1249,7 +1249,7 @@ double f_53(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1272,7 +1272,7 @@ double f_54(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1295,7 +1295,7 @@ double f_55(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1318,7 +1318,7 @@ double f_56(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1341,7 +1341,7 @@ double f_57(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1364,7 +1364,7 @@ double f_58(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1387,7 +1387,7 @@ double f_59(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1410,7 +1410,7 @@ double f_60(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1433,7 +1433,7 @@ double f_61(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1456,7 +1456,7 @@ double f_62(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1479,7 +1479,7 @@ double f_63(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1502,7 +1502,7 @@ double f_64(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1525,7 +1525,7 @@ double f_65(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1548,7 +1548,7 @@ double f_66(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1571,7 +1571,7 @@ double f_67(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1594,7 +1594,7 @@ double f_68(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1617,7 +1617,7 @@ double f_69(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1640,7 +1640,7 @@ double f_70(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1663,7 +1663,7 @@ double f_71(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1686,7 +1686,7 @@ double f_72(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1709,7 +1709,7 @@ double f_73(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1732,7 +1732,7 @@ double f_74(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1755,7 +1755,7 @@ double f_75(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1778,7 +1778,7 @@ double f_76(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1801,7 +1801,7 @@ double f_77(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1824,7 +1824,7 @@ double f_78(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1847,7 +1847,7 @@ double f_79(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1870,7 +1870,7 @@ double f_80(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1893,7 +1893,7 @@ double f_81(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1916,7 +1916,7 @@ double f_82(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1939,7 +1939,7 @@ double f_83(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1962,7 +1962,7 @@ double f_84(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -1985,7 +1985,7 @@ double f_85(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2008,7 +2008,7 @@ double f_86(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2031,7 +2031,7 @@ double f_87(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2054,7 +2054,7 @@ double f_88(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2077,7 +2077,7 @@ double f_89(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2100,7 +2100,7 @@ double f_90(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2123,7 +2123,7 @@ double f_91(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2146,7 +2146,7 @@ double f_92(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2169,7 +2169,7 @@ double f_93(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2192,7 +2192,7 @@ double f_94(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2215,7 +2215,7 @@ double f_95(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2238,7 +2238,7 @@ double f_96(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2261,7 +2261,7 @@ double f_97(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2284,7 +2284,7 @@ double f_98(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
@@ -2307,7 +2307,7 @@ double f_99(double t, double *x){
 			y_passive = IndividualID / 10;
 			x_active = fi % 10;
 			y_active = fi / 10;
-			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2));
+			distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
 			Weight = 1 / pow(distance, 2);
 			InteractionTotal += Weight * Interaction(x[IndividualID], x[fi], IndividualID, fi);
 			WeightTotal += Weight;
