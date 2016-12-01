@@ -21,7 +21,7 @@ int main(void){
 	int fi;
 	FILE *fp;
 	int Decay_distance = 1; /* 1のとき，相互作用関数が距離の2乗に反比例して減衰するようにする。0のとき，減衰しないようにする。 */
-	char PhaseShiftPara[] = "(distance / 345 + 0.02) / 0.25 * 2 * M_PI";
+	char PhaseShiftPara[] = "(distance / 345 + 0.03) / 0.25 * 2 * M_PI";
 
 	// まずヘッダファイルを作成
 	fp = myfopen("lib_Frog100PhaseDeriv.h", "w");
@@ -85,7 +85,8 @@ int main(void){
 	  fprintf(fp, "\t\t\tWeightTotal += Weight;\n");
 	  fprintf(fp, "\t\t}\n");
 	  fprintf(fp, "\t}\n");
-	  fprintf(fp, "\treturn omega + InteractionTotal / WeightTotal;\n");
+	  // fprintf(fp, "\treturn omega + InteractionTotal / WeightTotal;\n");
+	  fprintf(fp, "\treturn omega + InteractionTotal / %d;\n", NumOfFrogs - 1);
     fprintf(fp, "}\n\n");
 	}
 	fprintf(fp, "\n");

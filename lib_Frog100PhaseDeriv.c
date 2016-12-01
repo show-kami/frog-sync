@@ -11,7 +11,7 @@ double Interaction(double theta_passive, double theta_active, int passive, int a
 	int x_active = active % 10;
 	int y_active = active / 10;
 	double distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
-	double PhaseShiftPara = (distance / 345 + 0.02) / 0.25 * 2 * M_PI;
+	double PhaseShiftPara = (distance / 345 + 0.03) / 0.25 * 2 * M_PI;
 	double PhaseDiff = theta_active - theta_passive + PhaseShiftPara;
 	return -K * (sin(PhaseDiff) - gamma * sin(2 * PhaseDiff));
 }
@@ -36,7 +36,7 @@ double f_0(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_1(double t, double *x){
@@ -59,7 +59,7 @@ double f_1(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_2(double t, double *x){
@@ -82,7 +82,7 @@ double f_2(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_3(double t, double *x){
@@ -105,7 +105,7 @@ double f_3(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_4(double t, double *x){
@@ -128,7 +128,7 @@ double f_4(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_5(double t, double *x){
@@ -151,7 +151,7 @@ double f_5(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_6(double t, double *x){
@@ -174,7 +174,7 @@ double f_6(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_7(double t, double *x){
@@ -197,7 +197,7 @@ double f_7(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_8(double t, double *x){
@@ -220,7 +220,7 @@ double f_8(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_9(double t, double *x){
@@ -243,7 +243,7 @@ double f_9(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_10(double t, double *x){
@@ -266,7 +266,7 @@ double f_10(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_11(double t, double *x){
@@ -289,7 +289,7 @@ double f_11(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_12(double t, double *x){
@@ -312,7 +312,7 @@ double f_12(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_13(double t, double *x){
@@ -335,7 +335,7 @@ double f_13(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_14(double t, double *x){
@@ -358,7 +358,7 @@ double f_14(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_15(double t, double *x){
@@ -381,7 +381,7 @@ double f_15(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_16(double t, double *x){
@@ -404,7 +404,7 @@ double f_16(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_17(double t, double *x){
@@ -427,7 +427,7 @@ double f_17(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_18(double t, double *x){
@@ -450,7 +450,7 @@ double f_18(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_19(double t, double *x){
@@ -473,7 +473,7 @@ double f_19(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_20(double t, double *x){
@@ -496,7 +496,7 @@ double f_20(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_21(double t, double *x){
@@ -519,7 +519,7 @@ double f_21(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_22(double t, double *x){
@@ -542,7 +542,7 @@ double f_22(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_23(double t, double *x){
@@ -565,7 +565,7 @@ double f_23(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_24(double t, double *x){
@@ -588,7 +588,7 @@ double f_24(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_25(double t, double *x){
@@ -611,7 +611,7 @@ double f_25(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_26(double t, double *x){
@@ -634,7 +634,7 @@ double f_26(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_27(double t, double *x){
@@ -657,7 +657,7 @@ double f_27(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_28(double t, double *x){
@@ -680,7 +680,7 @@ double f_28(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_29(double t, double *x){
@@ -703,7 +703,7 @@ double f_29(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_30(double t, double *x){
@@ -726,7 +726,7 @@ double f_30(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_31(double t, double *x){
@@ -749,7 +749,7 @@ double f_31(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_32(double t, double *x){
@@ -772,7 +772,7 @@ double f_32(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_33(double t, double *x){
@@ -795,7 +795,7 @@ double f_33(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_34(double t, double *x){
@@ -818,7 +818,7 @@ double f_34(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_35(double t, double *x){
@@ -841,7 +841,7 @@ double f_35(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_36(double t, double *x){
@@ -864,7 +864,7 @@ double f_36(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_37(double t, double *x){
@@ -887,7 +887,7 @@ double f_37(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_38(double t, double *x){
@@ -910,7 +910,7 @@ double f_38(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_39(double t, double *x){
@@ -933,7 +933,7 @@ double f_39(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_40(double t, double *x){
@@ -956,7 +956,7 @@ double f_40(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_41(double t, double *x){
@@ -979,7 +979,7 @@ double f_41(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_42(double t, double *x){
@@ -1002,7 +1002,7 @@ double f_42(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_43(double t, double *x){
@@ -1025,7 +1025,7 @@ double f_43(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_44(double t, double *x){
@@ -1048,7 +1048,7 @@ double f_44(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_45(double t, double *x){
@@ -1071,7 +1071,7 @@ double f_45(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_46(double t, double *x){
@@ -1094,7 +1094,7 @@ double f_46(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_47(double t, double *x){
@@ -1117,7 +1117,7 @@ double f_47(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_48(double t, double *x){
@@ -1140,7 +1140,7 @@ double f_48(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_49(double t, double *x){
@@ -1163,7 +1163,7 @@ double f_49(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_50(double t, double *x){
@@ -1186,7 +1186,7 @@ double f_50(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_51(double t, double *x){
@@ -1209,7 +1209,7 @@ double f_51(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_52(double t, double *x){
@@ -1232,7 +1232,7 @@ double f_52(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_53(double t, double *x){
@@ -1255,7 +1255,7 @@ double f_53(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_54(double t, double *x){
@@ -1278,7 +1278,7 @@ double f_54(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_55(double t, double *x){
@@ -1301,7 +1301,7 @@ double f_55(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_56(double t, double *x){
@@ -1324,7 +1324,7 @@ double f_56(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_57(double t, double *x){
@@ -1347,7 +1347,7 @@ double f_57(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_58(double t, double *x){
@@ -1370,7 +1370,7 @@ double f_58(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_59(double t, double *x){
@@ -1393,7 +1393,7 @@ double f_59(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_60(double t, double *x){
@@ -1416,7 +1416,7 @@ double f_60(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_61(double t, double *x){
@@ -1439,7 +1439,7 @@ double f_61(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_62(double t, double *x){
@@ -1462,7 +1462,7 @@ double f_62(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_63(double t, double *x){
@@ -1485,7 +1485,7 @@ double f_63(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_64(double t, double *x){
@@ -1508,7 +1508,7 @@ double f_64(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_65(double t, double *x){
@@ -1531,7 +1531,7 @@ double f_65(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_66(double t, double *x){
@@ -1554,7 +1554,7 @@ double f_66(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_67(double t, double *x){
@@ -1577,7 +1577,7 @@ double f_67(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_68(double t, double *x){
@@ -1600,7 +1600,7 @@ double f_68(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_69(double t, double *x){
@@ -1623,7 +1623,7 @@ double f_69(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_70(double t, double *x){
@@ -1646,7 +1646,7 @@ double f_70(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_71(double t, double *x){
@@ -1669,7 +1669,7 @@ double f_71(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_72(double t, double *x){
@@ -1692,7 +1692,7 @@ double f_72(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_73(double t, double *x){
@@ -1715,7 +1715,7 @@ double f_73(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_74(double t, double *x){
@@ -1738,7 +1738,7 @@ double f_74(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_75(double t, double *x){
@@ -1761,7 +1761,7 @@ double f_75(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_76(double t, double *x){
@@ -1784,7 +1784,7 @@ double f_76(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_77(double t, double *x){
@@ -1807,7 +1807,7 @@ double f_77(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_78(double t, double *x){
@@ -1830,7 +1830,7 @@ double f_78(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_79(double t, double *x){
@@ -1853,7 +1853,7 @@ double f_79(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_80(double t, double *x){
@@ -1876,7 +1876,7 @@ double f_80(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_81(double t, double *x){
@@ -1899,7 +1899,7 @@ double f_81(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_82(double t, double *x){
@@ -1922,7 +1922,7 @@ double f_82(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_83(double t, double *x){
@@ -1945,7 +1945,7 @@ double f_83(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_84(double t, double *x){
@@ -1968,7 +1968,7 @@ double f_84(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_85(double t, double *x){
@@ -1991,7 +1991,7 @@ double f_85(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_86(double t, double *x){
@@ -2014,7 +2014,7 @@ double f_86(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_87(double t, double *x){
@@ -2037,7 +2037,7 @@ double f_87(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_88(double t, double *x){
@@ -2060,7 +2060,7 @@ double f_88(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_89(double t, double *x){
@@ -2083,7 +2083,7 @@ double f_89(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_90(double t, double *x){
@@ -2106,7 +2106,7 @@ double f_90(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_91(double t, double *x){
@@ -2129,7 +2129,7 @@ double f_91(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_92(double t, double *x){
@@ -2152,7 +2152,7 @@ double f_92(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_93(double t, double *x){
@@ -2175,7 +2175,7 @@ double f_93(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_94(double t, double *x){
@@ -2198,7 +2198,7 @@ double f_94(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_95(double t, double *x){
@@ -2221,7 +2221,7 @@ double f_95(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_96(double t, double *x){
@@ -2244,7 +2244,7 @@ double f_96(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_97(double t, double *x){
@@ -2267,7 +2267,7 @@ double f_97(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_98(double t, double *x){
@@ -2290,7 +2290,7 @@ double f_98(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 double f_99(double t, double *x){
@@ -2313,7 +2313,7 @@ double f_99(double t, double *x){
 			WeightTotal += Weight;
 		}
 	}
-	return omega + InteractionTotal / WeightTotal;
+	return omega + InteractionTotal / 99;
 }
 
 
