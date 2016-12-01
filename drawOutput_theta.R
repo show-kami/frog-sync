@@ -29,16 +29,13 @@ if (num.frogs == 2 || num.frogs == 3){
 } else {
 	png(filename = "plot_PhaseCurve.png", height = 600, width = 300 * (t_end - t_0), res = 144)
 	plot(as.matrix(data[1]), as.matrix(data[2]), type = "l", xlab="time [s]", ylab = "phase")
-	for (i in 1:num.frogs-2){
+	for (i in 1:num.frogs-1){
 		par(new = T)
 		plot(as.matrix(data[1]), as.matrix(data[i+2]), type = "l", xlab="", ylab = "")
 		setTxtProgressBar(pb, i)
 	}
-	par(new = T)
-	plot(data$time, as.matrix(data[num.frogs+1]), type = "l", col = "red", xlab="time [s]", ylab = "phase")
 	dev.off()
 }
-
 
 # 各個体間の位相差の時間変化
 if(num.frogs == 2 || num.frogs == 3){
