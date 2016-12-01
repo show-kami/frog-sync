@@ -11,7 +11,7 @@ double Interaction(double theta_passive, double theta_active, int passive, int a
 	int x_active = active % 10;
 	int y_active = active / 10;
 	double distance = sqrt(pow(x_passive - x_active, 2) + pow(y_passive - y_active, 2)) * 0.250000;
-	double PhaseShiftPara = (distance / 345 + 0.03) / 0.25 * 2 * M_PI;
+	double PhaseShiftPara = (distance / 345 + 0.03) / 0.33 * 2 * M_PI;
 	double PhaseDiff = theta_active - theta_passive + PhaseShiftPara;
 	return -K * (sin(PhaseDiff) - gamma * sin(2 * PhaseDiff));
 }
