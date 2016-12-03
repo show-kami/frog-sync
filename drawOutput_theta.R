@@ -59,6 +59,16 @@ if(num.frogs == 2 || num.frogs == 3){
 	dev.off()
 }
 
+# 秩序パラメータの時間変化
+png(filename = "plot_OrderParameter.png")
+plot(data$time, data$OrderPara_Abs, type = "l", col = "blue", ylim = c(0, 1), xlab = "time [s]", ylab = "order parameter", yaxt = "n")
+par(new=T)
+plot(data$time, data$OrderParaAnti_Abs, type = "l", col = "red", ylim = c(0, 1), xlab = "", ylab = "", yaxt = "n")
+axis.point <- c(0, 0.5, 1)
+axis.name <- c("0", "0.5", "1")
+axis(2, at = axis.point, labels = axis.name)
+dev.off()
+
 # ラスタープロット
 png(filename = "plot_rasterplot.png", height = 300 + 20 * num.frogs, width = 300 * (t_end - t_0), res = 144)
 plot(as.matrix(data.raster[1]), as.matrix(data.raster[2]), pch=15, xlim=c(t_0, t_end), ylim=c(0, num.frogs-1), xlab="time [s]", ylab="Frog No.")
@@ -72,3 +82,4 @@ for(i in 1:num.frogs-1){
 	}
 }
 dev.off()
+

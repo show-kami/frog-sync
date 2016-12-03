@@ -66,7 +66,8 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 		fprintf(fp, ", PhaseDifference(0_2)");
 		fprintf(fp, ", PhaseDifference(1_2)");
 	}
-	fprintf(fp, ", OrderPara_drawX, OrderPara_drawY\n");
+	fprintf(fp, ", OrderPara_drawX, OrderPara_drawY, OrderPara_Abs");
+	fprintf(fp, ", OrderParaAnti_drawX, OrderParaAnti_drawY, OrderParaAnti_Abs");
 	fprintf(fp, "\n");
 
 	// 各時間における各数値を出力
@@ -86,7 +87,7 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 		}
 
 		// 秩序パラメータを書く
-		double OrderPara_drawX, OrderPara_drawY;
+		double OrderPara_drawX, OrderPara_drawY, OrderPara_Abs;
 		double x_tmp = 0;
 		double y_tmp = 0;
 		for(fj = 0; fj < NUMofEQUS; fj++){
@@ -96,7 +97,19 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 		}
 		OrderPara_drawX = x_tmp / NUMofEQUS;
 		OrderPara_drawY = y_tmp / NUMofEQUS;
-		fprintf(fp, ", %f, %f\n", OrderPara_drawX, OrderPara_drawY);
+		OrderPara_Abs = sqrt(pow(OrderPara_drawX, 2) + pow(OrderPara_drawY, 2));
+		fprintf(fp, ", %f, %f, %f", OrderPara_drawX, OrderPara_drawY, OrderPara_Abs);
+
+		// 秩序パラメータ (逆相同期用) を書く
+		for(fj = 0; fj < NUMofEQUS; fj++){
+			double phase = x[fj+1][fi];
+			x_tmp += cos(2*phase);
+			y_tmp += sin(2*phase);
+		}
+		OrderPara_drawX = x_tmp / NUMofEQUS;
+		OrderPara_drawY = y_tmp / NUMofEQUS;
+		OrderPara_Abs = sqrt(pow(OrderPara_drawX, 2) + pow(OrderPara_drawY, 2));
+		fprintf(fp, ", %f, %f, %f", OrderPara_drawX, OrderPara_drawY, OrderPara_Abs);
 
 		// 改行
 		fprintf(fp, "\n");
@@ -185,6 +198,8 @@ int main(void){
 
 	// ラスタープロット用のデータを出力
 	outputRasterPlotSource(x, t_0, t_end, dt);
+
+	// r-Rantiグラフを作成するための計算を実行・データを出力
 
 	return 0;
 }
