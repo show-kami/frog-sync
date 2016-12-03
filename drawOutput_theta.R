@@ -14,28 +14,29 @@ if(num.frogs > 2){
 }
 
 # 各個体の位相の時間変化
+span.phase <- c(0, 2*pi)
 if (num.frogs == 2 || num.frogs == 3){
 	png(filename = "plot_PhaseCurve.png", height = 600, width = 300 * (t_end - t_0), res = 144)
-	plot(data$time, (data$theta_0), type = "l", col = "red", xlab="time [s]", ylab = "phase")
+	plot(data$time, (data$theta_0), type = "l", col = "red", xlab="time [s]", ylab = "phase", ylim = span.phase)
 	if (num.frogs >= 2){
 		par(new=T)
-		plot(data$time, (data$theta_1), type = "l", col = "blue", xlab="", ylab = "")
+		plot(data$time, (data$theta_1), type = "l", col = "blue", xlab="", ylab = "", ylim = span.phase)
 	}
 	if (num.frogs >= 3){
 		par(new=T)
-		plot(data$time, (data$theta_2), type = "l", col = "green", xlab="", ylab = "")
+		plot(data$time, (data$theta_2), type = "l", col = "green", xlab="", ylab = "", ylim = span.phase)
 	}
 	dev.off()
 } else {
 	png(filename = "plot_PhaseCurve.png", height = 600, width = 300 * (t_end - t_0), res = 144)
-	plot(as.matrix(data[1]), as.matrix(data[2]), type = "l", xlab="time [s]", ylab = "phase")
+	plot(as.matrix(data[1]), as.matrix(data[2]), type = "l", xlab="time [s]", ylab = "phase", ylim = span.phase)
 	for (i in 1:num.frogs-2){
 		par(new = T)
-		plot(as.matrix(data[1]), as.matrix(data[i+2]), type = "l", xlab="", ylab = "")
+		plot(as.matrix(data[1]), as.matrix(data[i+2]), type = "l", xlab="", ylab = "", ylim = span.phase)
 		setTxtProgressBar(pb, i)
 	}
 	par(new = T)
-	plot(data$time, as.matrix(data[num.frogs+1]), type = "l", col = "red", xlab="", ylab = "")
+	plot(data$time, as.matrix(data[num.frogs+1]), type = "l", lwd = 2, col = "red", xlab="", ylab = "", ylim = span.phase)
 	dev.off()
 }
 
