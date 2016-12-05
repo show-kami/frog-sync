@@ -5,7 +5,7 @@
 #define NUMofEQUS 2
 #define PHI_DIV_NUM 1000
 #define R_START 0
-#define R_END 10*sqrt(2)
+#define R_END 100
 
 FILE* myfopen(char* FileName, char* type){
 	FILE* fp = fopen(FileName, type);
@@ -24,7 +24,7 @@ int NumOfSlice(double start, double end, double step){
 double DphiDt(double phi, double r){
 	double K = 8.0;
 	double gamma = 1.3;
-	double alpha = (r/345 + 0.02) / 0.25 * 2 * M_PI;
+	double alpha = (0.33 - 0.295 - r/345) / 0.33 * 2 * M_PI; /* αはここで変更 */
 	return K * (sin(phi + alpha) - gamma * sin(2*(phi + alpha)) + sin(phi - alpha) - gamma * sin(2 * (phi - alpha)));
 }
 

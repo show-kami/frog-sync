@@ -17,11 +17,11 @@ int main(void){
 	int NumOfFrogs = 100;
 	double K = 8.0;
 	double gamma = 1.3;
-	double IdentityDistance = 0.25; /* カエルを配置する格子点の間隔を0.25 mにする。 */
+	double IdentityDistance = 4; /* カエルを配置する格子点の間隔をIdentityDistance mにする。 */
 	int fi;
 	FILE *fp;
 	int Decay_distance = 1; /* 1のとき，相互作用関数が距離の2乗に反比例して減衰するようにする。0のとき，減衰しないようにする。 */
-	char PhaseShiftPara[] = "(distance / 345 + 0.02) / 0.25 * 2 * M_PI";
+	char PhaseShiftPara[] = "(0.33 - 0.295 - distance/345) / 0.33 * 2 * M_PI";
 
 	// まずヘッダファイルを作成
 	fp = myfopen("lib_Frog100PhaseDeriv.h", "w");
