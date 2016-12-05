@@ -101,6 +101,8 @@ void outputPhaseTimeRel(double **x, double t_0, double t_end, double dt){
 		fprintf(fp, ", %f, %f, %f", OrderPara_drawX, OrderPara_drawY, OrderPara_Abs);
 
 		// 秩序パラメータ (逆相同期用) を書く
+		x_tmp = 0;
+		y_tmp = 0;
 		for(fj = 0; fj < NUMofEQUS; fj++){
 			double phase = x[fj+1][fi];
 			x_tmp += cos(2*phase);
