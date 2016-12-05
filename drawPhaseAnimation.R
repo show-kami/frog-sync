@@ -12,8 +12,8 @@ pb <- txtProgressBar(min = 1, max = num.timeslice, style = 3) # プログレス�
 
 execute <- function(){
 	for(i in 1:num.timeslice){
-		OrderParaX <- data$OrderPara_drawX[i]
-		OrderParaY <- data$OrderPara_drawY[i]
+		OrderParaX <- data$OrderParaAnti_drawX[i]
+		OrderParaY <- data$OrderParaAnti_drawY[i]
 		plot(cos(theta), sin(theta), type = "l", xlim = c(-1,1), ylim = c(-1,1) , xlab = "", ylab = "")
 		for(j in 1:num.frogs){
 			phase_j <- data[i, 1+j]
