@@ -1,5 +1,7 @@
 library(animation)
 
+koushi <- 10 # 格子間隔
+
 num.frogs <- 100 # 考えている個体数
 data <- read.csv("output_thetaForRasterPlot.csv", header = T)
 num.timeslice <- nrow(data)
@@ -8,7 +10,11 @@ pb <- txtProgressBar(min = 1, max = num.timeslice, style = 3)
 
 execute <- function(){
 	for(i in 1:num.timeslice){
-		plot(0,0,type = "n", xlim = c(0,10), ylim = c(0,10))
+		plot(0,0,type = "n", xlim = c(0,10), ylim = c(0,10), xlab = "x [m]", ylab = "y[m]", xaxt = "n", yaxt = "n")
+		axis.point <- 0:10
+		axis.name <- c(as.character(axis.point * koushi))
+		axis(1, at = axis.point, labels = axis.name)
+		axis(2, at = axis.point, labels = axis.name)
 
 		for(x in 1:10){
 			for(y in 1:10){
