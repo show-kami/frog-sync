@@ -23,7 +23,7 @@ int NumOfSlice(double start, double end, double step){
 }
 
 double Interaction(double theta_passive, double theta_active){
-	double K = 1.0;
+	double K = 8.0;
 	double gamma = 0.25;
 	double PhaseDiff = theta_active - theta_passive;
 	return -K * (sin(PhaseDiff) - gamma * sin(2 * PhaseDiff));
@@ -80,7 +80,7 @@ int main(void){
 
 	t_0 = 0;
 	t_end = 10;
-	dt = 0.01;
+	dt = 0.001;
 	x = malloc(sizeof(double *) * (NUMofEQUS + 1)); /* 解くべき方程式の本数+1だけのメモリを用意 */
 	for(i=0; i<NUMofEQUS + 1; i++){
 		x[i] = malloc(sizeof(double) * NumOfSlice(t_0, t_end, dt));
