@@ -179,8 +179,18 @@ int main(void){
 	for(fi = 0; fi < NUMofEQUS; fi++){
 		x_0[fi] = (double)rand()/RAND_MAX * 2 * M_PI; /* 0-2piの間の一様乱数を格納しておく */
 	}
-	// if(NUMofEQUS >= 2) x_0[1] = M_PI/4;
-	// if(NUMofEQUS >= 3) x_0[2] = M_PI/8;
+	/* 市松模様の初期値を格納してみる */
+	// for(fi = 0; fi < NUMofEQUS; fi++){
+	// 	int x = fi % 10;
+	// 	int y = (int)fi / 10;
+	// 	if((x+y)%2 == 0){
+	// 		x_0[fi] = 7*M_PI/8;
+	// 	} else {
+	// 		x_0[fi] = 0;
+	// 	}
+	// 	if(x%2 == 0) x_0[fi] = 0;
+	// 	else x_0[fi] = M_PI;
+	// }
 
 	// 独立変数のスパンを決め，その分の独立変数・従属変数計算結果を格納する配列を用意
 	t_0 = 0;
