@@ -28,15 +28,18 @@ if (num.frogs == 2 || num.frogs == 3){
 	}
 	dev.off()
 } else {
-	png(filename = "plot_PhaseCurve.png", height = 600, width = 300 * (t_end - t_0), res = 144)
-	plot(as.matrix(data[1]), as.matrix(data[2]), type = "l", xlab="time [s]", ylab = "phase", ylim = span.phase)
-	for (i in 1:num.frogs-2){
+	png(filename = "plot_PhaseCurve.png", height = 800, width = 500 * (t_end - t_0), res = 144)
+	plot(as.matrix(data[1]), as.matrix(data[2]), type = "l", xlab="time [s]", ylab = "phase", ylim = span.phase,yaxt="n")
+	for (i in 1:num.frogs-1){
 		par(new = T)
-		plot(as.matrix(data[1]), as.matrix(data[i+2]), type = "l", xlab="", ylab = "", ylim = span.phase)
+		plot(as.matrix(data[1]), as.matrix(data[i+2]), type = "l", xlab="", ylab = "", ylim = span.phase,yaxt="n")
 		setTxtProgressBar(pb, i)
 	}
 	par(new = T)
-	plot(data$time, as.matrix(data[num.frogs+1]), type = "l", lwd = 2, col = "red", xlab="", ylab = "", ylim = span.phase)
+	plot(data$time, as.matrix(data[num.frogs+1]), type = "l", lwd = 3, col = "red", xlab="", ylab = "", ylim = span.phase,yaxt="n")
+	axis.point <- seq(0, 2*pi, by = pi/3)
+	axis.name <- c("0", "pi/3", "2pi/3", "pi", "4pi/3", "5pi/6", "2pi")
+	axis(2, at = axis.point, labels = axis.name)
 	dev.off()
 }
 
@@ -62,9 +65,9 @@ if(num.frogs == 2 || num.frogs == 3){
 
 # 秩序パラメータの時間変化
 png(filename = "plot_OrderParameter.png")
-plot(data$time, data$OrderPara_Abs, type = "l", col = "blue", ylim = c(0, 1), xlab = "time [s]", ylab = "order parameter", yaxt = "n")
+plot(data$time, data$OrderPara_Abs, type = "l", lwd = 5, col = "blue", ylim = c(0, 1), xlab = "time [s]", ylab = "order parameter", yaxt = "n")
 par(new=T)
-plot(data$time, data$OrderParaAnti_Abs, type = "l", col = "red", ylim = c(0, 1), xlab = "", ylab = "", yaxt = "n")
+plot(data$time, data$OrderParaAnti_Abs, type = "l", lwd = 5, col = "red", ylim = c(0, 1), xlab = "", ylab = "", yaxt = "n")
 axis.point <- c(0, 0.5, 1)
 axis.name <- c("0", "0.5", "1")
 axis(2, at = axis.point, labels = axis.name)
